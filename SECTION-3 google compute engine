@@ -1,0 +1,38 @@
+SECTION -3 
+				
+google compute engine .
+
+external ip -  these are internet addressable .
+internal ip - these are ip which connected in corporate network.
+
+we cannot have 2 different external ip for same resources.
+we can have same internal ip for 2 different corporate network.
+
+once we stop vm instances external ip changes. to solve this problem we use static ip.
+step to attach static ip to vm instances.
+
+go to search --> type external ip --> click on reserve static ip --> give name to static ip and then fill other options  then press ok-->
+change option will appear on right of static ip created --> click on change option --> attach the static ip created to vm instance you want.
+
+there is charge of static ip created . 
+static ip remain appear if you stop the vm instance. 
+you will be charge from static ip even if you stop tdelete vm instance. we have to release static ip from this option ( option will appear from where we have created the one.)
+
+ec2- instance type -2 (  late number 2 represent the no of cpus.)
+
+to decrease the steps involved in launch of instance. we use the following steps 
+
+ 1. startup script
+ 2. instance templete
+ 3. custom images.
+ 
+ bootstrap- install os patches or software during launch of vm instance.
+ 
+ 1. startup script --  write the script for installing software( like apache) in meta section during launch of vm instance.
+                           this process is time consuming because time will be needed to install software during lauch of vm instance.
+						   
+
+2. instance templete- - instance templete is created to decrease the lauch time of vm instance .
+                                      we will create instance templete in which we define the machine type, startup script , storage, image, other properties.
+
+3. custom images. -- this reduces further time to lauch of instance . we use hardened copy of image. 
