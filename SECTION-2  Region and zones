@@ -1,0 +1,15 @@
+SECTION -2 
+
+region and zone --> if we have application deployed in data center in london. it will have 2 problem
+ 1. high latency - if we have accesing application from mumbai then we have high latency.
+ 2. low availability - if data center crashes, then we our application suffers. 
+ 
+ to solve both problem we will increase data center that solves low availability issue. if we access application from nearest data center then we will achieve low latency.
+ 
+ Region -->  these are nothing but geographical location to host your resources. 
+ adavantages-- high availability, low latency, adherence to gov clearence.
+ 
+ zones--> it increase availabilty within region . each region has 3 or more zones .
+                zones are cluster of data center interconnected with each other. with low latency.
+				
+				data centers have high connectivity.
