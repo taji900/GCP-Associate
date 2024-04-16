@@ -1,0 +1,108 @@
+SECTION-4
+
+ Google compute engine cost optimization.
+ 
+ sustained use discounts 
+ --> Automtic discoounts for running vm instances for significant portion of the billing month.
+ Applicable for instances created by google kubernetes engine and compute engine.
+ restriction--> does not apply to certain machine (E2 and A2).
+ restriction --> does not apply to app engine flexible and dataflow.
+ 
+ Commited used discount 
+ 
+ used for workload with predictable resource need.
+ commited for 1 to 3 yrs.
+ can get discount upto 70%  and this discount is greater than sustained used discount.
+ can be applicable for google  kubernetes engine and vm compute engine.
+ not applicable for app created by engine flexible and dataflow.
+ 
+ 
+ preemitable discounts 
+ - short lived cheaper vm instances
+ - had to stop within 24 hrs only.
+ - used when workload is not immediate.
+ - not always available, no sla and cannot be migrated to regular vm.
+ 
+ spot vm 
+ - It is latest version of preemitable vms.
+ - no maximum runtime unlike preemitable vms.
+ 
+ google compute engine billing
+ - you are billed every second. after 1 minute of usage.
+ - you r not billled when vm instance is stopped.
+ - but charged for storage attached with it.
+ -recomendation- create budget alert in billing section.
+ 
+ save money -  choose the right machine type and image type.
+ be aware of discounts available 
+ sustainable discounts
+ commited used discounts
+ preemitable discounts.
+ spot vm discounts.
+ 
+ 
+ 
+ live migration and availability policy
+ 
+ how do you keep vm instance running when a host system needs to be updated( a software or a hardware update needs to be performed)
+ -Live migration  
+   - your running vm instance is migrated to another host in the same zone.
+   - does not change any attributes or properties of vm .
+   - supported for instance with local ssds.
+   - not supported for gpus and preemitable instance 
+   
+   important configuration - Availability policy
+   on host maintenance -what should happen during periodic infrastructure maintaeneave 
+   
+   automatic restart.
+ 
+ 
+ Compute engine features: custom machine types
+ 
+ when predefined vm option  is not enough appropriate for your workloads we use custom machine. we crate custom machine type customized 
+ for your need.
+ 
+ custom machine type : adjust vcpus, memory and gpus
+ choose between E2,N2,N1 machine types. support variety of operating systems - ubuntu, centos, debian redhat,windows,coreos.
+ 
+ billed per cpus , memory provisioned to each instsnce  
+ 
+ 
+ GPUs -
+ GPUs are very important in math intensive worloads and graphic intensive workloads for AI/ML
+ add gpu to virtual machine - 
+ it has higher cost, 
+ use images with gpu libraries installed , otherwise gpu will not work.
+ not supported  on all mahine types.
+ on host maintenance can only have terminate vm instance 
+ recommended availability ploicy for gpu 
+ automatic restart on
+ 
+ 
+ - machine availability can vary from region to region.
+ - you can change the machine type of a stopped instance only.
+ -vm's can be filtered by various properties.
+ - instance are zonal(run in specific zone)'
+ - images are global
+ - instance templete are global.
+ -automatic monitoring is enabled.
+ -for memory utilization and disk space utilization - cloud monitoring agent is needed.
+ 
+ choose zone and region based on - cost , regulation, availability needs, latency and specific hardware needs.
+ 
+ 
+ scenario and solutions
+ 1. what are the pre-requisites to be able to create a vm instance?
+ solution - 1. project
+                 2. billing account
+				 3. compute engine APIs should be enabled.
+
+2. you want dedicated hardware for your compliancee, licensing and management  needs.
+solution -  use solo tenant nodes
+
+3. i have 1000s of vm and i want to automate os patch management os inventory management and os configuration management( manage 
+software installed) 
+solution - use vm manager 
+
+4. you want to login to vm instance to install software
+solution - you can use ssh into it.
