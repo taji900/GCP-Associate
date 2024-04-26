@@ -1,0 +1,120 @@
+Cloud Load balacing
+
+- Distributes user traffic across instances of an application in single region or multiple region.
+-Fully distributed, software defined managed service.
+important features  
+  -  Health check- route to healthy instances( recover from failures)
+  - Autoscaling( depending on number of requests it can scale automatically)
+  - Global load balancing with single anycast ip( also support internal load balancing)
+
+
+
+Enables
+- High availability
+- Auto scaling
+- Resiliency
+
+HTTP vs HTTPS vs TCP vs TLSVvs UDP
+
+- Computer use protocol to communicate with each other.
+- MUltiple layers and protocol
+- Network layer - Transfer bits and bytes
+- Transport layer - it make sure that bits and bytes are transferred properly?
+- Application layer - Make REST API calls and Send emails.
+
+- each layer makes use of layer beneth it.
+- most application talk at application layer. but some application atalk at network 
+layer directly( high performance).
+
+Network layer:
+ - IP( internet prtocol): transfer bytes. unreliable.
+
+Transfer layer:
+  - TCP ( transmission control): Reliablity> performance
+  - TLS ( Transport layer security) secure TCP 
+  - UDP ( user datagram protocol) performance > reliability
+
+Application layer:
+ - HTTP( Hyertext transfer protocol): stateless request response cycle
+HTTPS - secure HTTP
+SMTP - sends email
+
+most application typically communicate at application layer
+- all these application use TCP/TLS at network layer( for reliability)
+However application needing high performance directly communicate at transport layer.
+gaming application and live video streaming use UDP ( sacrifice reliability for performance)
+
+
+Creating Load balancer in GCP - hands ON.
+
+New classic HTTPS load balancer 
+
+
+Backend configuration - where we want to redirect the incoming traffic to 
+Host and path rules - will configure the rules how u can redirect traffic to backend
+frontend configuration - where u recive the traffic.it provide url for load balancer.
+
+
+
+load balancer terminology
+
+
+USER --> CLOUD LOAD BALANCER --> INSTANCES( COMPUTE ENGINE)
+
+1. BACKEND - 
+BACKEND - group of endpoint that recieve traffic from a google cloud balancer 
+
+FRONTEND - speccify an ip address, port and protocol.this  ip address is the 
+- for SSL,  certificate must also be assigned.
+
+HOST and path rules- ( for HTTPS Load balancing) - define rules redirecting to different backend.
+
+based on path
+based on host
+
+
+client to load balancer: over internet
+ - HTTPS recommended
+
+Load balancer to vm instance : through google internal network 
+ -     http is ok. https is preferred
+
+SSL/TLS termination /offloading
+ - client to load balancer: HTTPS/TLS
+ - load balancer to vm instance : HTTP/TCP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
