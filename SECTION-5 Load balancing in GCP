@@ -87,6 +87,35 @@ SSL/TLS termination /offloading
 
 
 
+load balancer          type of traffic                     proxy or pass through          destination port
+
+External HTTPS       global,external,HTTPS                        PROXY                    HTTP ON 80 or 8080
+                        HTTPS                                                              HTTPS on 443
+
+Internal HTTPS      Regional, internal, HTTPS or HTTPS            PROXY                   HTTP ON 80 OR 8080 
+                                                                                          HTTPS ON 443
+
+
+
+scenario 1.  you want healthy instance to recieve traffic 
+sol.  configure health check 
+
+scenario 2. you want high availability for your vm instance 
+sol. create multiple MIGs for your vm instance in multiple regions. load balance using a load balancer.
+
+scanrio 3. you want to route requests to multiple microservices using the same load balancer.
+sol.  create individual MIGs and backend for each microservice. 
+      create host and path rules to redirect to specific microservice 
+      backend based on the path ( /microservice-a, /microservice-b etc)
+      you can route to a backend cloud storage bucket as well.
+
+scenario 4. - you want to load balance global external HTTPS traffic across backend instance
+across multiple regions.
+sol.choose external HTTPS load balancer
+
+scenario 5 . you want SSL termination for global non HTTPS traffic with load balancing 
+sol. choose SSL proxy load balancer.
+
 
 
 
